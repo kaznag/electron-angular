@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "yarn build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "build:dev",
+      "type": "shell",
+      "command": "yarn build:dev",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "start",
+      "type": "shell",
+      "command": "yarn start",
+      "problemMatcher": []
+    },
+    {
+      "label": "package",
+      "type": "shell",
+      "windows": {
+        "command": "yarn pack:w"
+      },
+      "linux": {
+        "command": "yarn pack:l"
+      },
+      "problemMatcher": []
+    },
+  ]
+}

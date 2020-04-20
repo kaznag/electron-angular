@@ -1,0 +1,17 @@
+{
+  "name": "electron-angular",
+  "version": "0.1.0",
+  "main": "main.js",
+  "dependencies": {
+    "@angular/common": "7",
+    "@angular/compiler": "7",
+    "@angular/core": "7",
+    "@angular/platform-browser": "7",
+    "@angular/platform-browser-dynamic": "7",
+    "core-js": "2.6",
+    "electron-store": "^5.1.1",
+    "rxjs": "6.3",
+    "tslib": "^1.11.1",
+    "zone.js": "0.8"
+  }
+}

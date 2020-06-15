@@ -1,1 +1,6 @@
-<div class="hello">Hello world</div>
+<app-title-bar [windowTitle]="widowTitle" [isMaximized]="isMaximized" (closeButtonClick)="onCloseButtonClick()"
+  (maximizeRestoreButtonClick)="onMaximizeRestoreButtonClick()" (minimizeButtonClick)="onMinimizeButtonClick()">
+</app-title-bar>
+<div class="contents">
+  hello world!
+</div>

@@ -1,6 +1,7 @@
-import { app } from 'electron'
+import { app, ipcMain } from 'electron'
 import { MainWindow } from './main-window';
 import { ApplicationSettings } from './application-settings';
+import { ChannelKey } from '../common/channel-key';
 
 class Application {
 
@@ -18,10 +19,18 @@ class Application {
     this.app.on('ready', () => this.onReady());
     this.app.on('window-all-closed', () => this.onWindowAllClosed());
     this.app.on('second-instance', () => this.onSecondInstance());
+
+    ipcMain.on(ChannelKey.windowCloseRequest, () => this.mainWindow!.close());
+    ipcMain.on(ChannelKey.windowMaximizeRestoreRequest, () => this.mainWindow!.maximizeRestore());
+    ipcMain.on(ChannelKey.windowMinimizeRequest, () => this.mainWindow!.minimize());
   }
 
   private onReady(): void {
     this.mainWindow = new MainWindow(this.appSettings!);
+
+    this.mainWindow.on('maximize', () => this.onWindowMaximize());
+    this.mainWindow.on('unmaximize', () => this.onWindowUnmaximize());
+
     this.mainWindow.show();
   }
 
@@ -35,6 +44,18 @@ class Application {
     if (this.mainWindow) {
       this.mainWindow.show();
     }
+  }
+
+  private onWindowMaximize(): void {
+    this.sendWindowMaximize(true);
+  }
+
+  private onWindowUnmaximize(): void {
+    this.sendWindowMaximize(false);
+  }
+
+  private sendWindowMaximize(isMaximized: boolean): void {
+    this.mainWindow!.send(ChannelKey.windowMaximize, isMaximized);
   }
 }
 

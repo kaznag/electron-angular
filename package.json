@@ -33,7 +33,7 @@
     "electron-builder": "^22.4.1",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
-    "husky": "3",
+    "husky": "^4.2.5",
     "node-sass": "^4.13.1",
     "raw-loader": "1",
     "sass-loader": "^8.0.2",

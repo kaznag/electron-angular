@@ -29,7 +29,7 @@
     "angular2-template-loader": "^0.6.2",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.1",
-    "electron": "8.2.0",
+    "electron": "^9.1.2",
     "electron-builder": "^22.4.1",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",

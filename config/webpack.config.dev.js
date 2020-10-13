@@ -1,5 +1,5 @@
-const merge = require('webpack-merge');
 const path = require('path');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.config.common');
 
 const outputPath = path.resolve(common.rootPath, 'dist/dev');

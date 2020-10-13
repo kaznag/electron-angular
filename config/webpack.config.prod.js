@@ -1,5 +1,5 @@
-const merge = require('webpack-merge');
 const path = require('path');
+const { merge } = require('webpack-merge');
 const JavaScriptObfuscator = require('webpack-obfuscator');
 const common = require('./webpack.config.common');
 

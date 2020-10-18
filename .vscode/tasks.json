@@ -23,7 +23,7 @@
       "problemMatcher": []
     },
     {
-      "label": "rebuild;dev",
+      "label": "rebuild:dev",
       "type": "shell",
       "command": "yarn rebuild:dev",
       "group": "build",

@@ -67,7 +67,7 @@ const renderer = {
       },
       {
         test: /\.html$/,
-        use: 'raw-loader',
+        use: 'html-loader',
       },
     ],
   },

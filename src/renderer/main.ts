@@ -1,4 +1,5 @@
 import './polyfills';
+import 'reflect-metadata';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 

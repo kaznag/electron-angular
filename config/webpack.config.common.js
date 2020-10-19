@@ -90,9 +90,37 @@ const renderer = {
   },
 };
 
+const preload = {
+  entry: path.resolve(srcPath, 'preload/preload.ts'),
+  output: {
+    filename: 'preload.js',
+  },
+  module: {
+    rules: [{
+      test: /\.ts$/,
+      include: [
+        srcPath,
+      ],
+      exclude: [
+        path.resolve(rootPath, 'node_modules'),
+      ],
+      loader: 'ts-loader',
+    }]
+  },
+  resolve: {
+    extensions: ['.js', '.ts']
+  },
+  target: 'electron-preload',
+  node: {
+    __filename: true,
+    __dirname: true,
+  },
+};
+
 module.exports = {
   main: main,
   renderer: renderer,
+  preload: preload,
   rootPath: rootPath,
   srcPath: srcPath,
   stylesPath: stylesPath,

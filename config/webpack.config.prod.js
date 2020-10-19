@@ -59,7 +59,20 @@ const renderer = merge(common.renderer, {
   ]
 });
 
+const preload = merge(common.preload, {
+  mode: 'production',
+  output: {
+    path: outputPath,
+  },
+  plugins: [
+    new JavaScriptObfuscator({
+      rotateUnicodeArray: true
+    }),
+  ]
+});
+
 module.exports = [
   main,
   renderer,
+  preload,
 ];

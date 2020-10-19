@@ -33,7 +33,10 @@ class MainWindow extends EventEmitter {
       frame: false,
       webPreferences: {
         devTools: this.isDev,
-        nodeIntegration: true,
+        preload: path.resolve(app.getAppPath(), 'preload.js'),
+        sandobox: true,
+        contextIsolation: true,
+        worldSafeExecuteJavascript: true,
       }
     };
 
@@ -48,10 +51,6 @@ class MainWindow extends EventEmitter {
 
     this.normalPosition = this.window.getPosition();
     this.normalSize = this.window.getSize();
-
-    if (this.appSettings.getWindowIsMaximized()) {
-      this.window.maximize();
-    }
 
     this.window.setMenu(null);
     this.window.loadFile(path.join(app.getAppPath(), 'index.html'));
@@ -86,8 +85,16 @@ class MainWindow extends EventEmitter {
     }
   }
 
+  maximize(): void {
+    this.window!.maximize();
+  }
+
   minimize(): void {
     this.window!.minimize();
+  }
+
+  isMaximized(): boolean {
+    return this.window!.isMaximized();
   }
 
   send(channel: string, ...args: any[]): void {
@@ -127,11 +134,7 @@ class MainWindow extends EventEmitter {
     if (this.isDev) {
       globalShortcut.register(this.devToolsShortcutKey, () => {
         if (this.window!.isFocused()) {
-          if (this.window!.webContents.isDevToolsOpened()) {
-            this.window!.webContents.closeDevTools();
-          } else {
-            this.window!.webContents.openDevTools();
-          }
+          this.window!.webContents.toggleDevTools();
         }
       });
     }

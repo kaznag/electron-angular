@@ -1,6 +1,4 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { ipcRenderer, IpcRendererEvent } from 'electron';
-import { ChannelKey } from '../../common/channel-key';
 
 @Component({
   selector: 'app-root',
@@ -17,22 +15,27 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.windowTitle = require('electron').remote.app.name;
-    this.isMaximized = require('electron').remote.getCurrentWindow().isMaximized();
+    window.api.onWindowMaximize(isMaximize => this.onWindowMaximize(isMaximize));
 
-    ipcRenderer.on(ChannelKey.windowMaximize, (_event: IpcRendererEvent, isMaximized: boolean) => this.onWindowMaximize(isMaximized));
+    window.api.invokeWindowParameterRequest()
+      .then(windowParameter => {
+        this.isMaximized = windowParameter.isMaximized;
+        this.windowTitle = windowParameter.title;
+
+        window.api.sendWindowInitialized();
+      });
   }
 
   onCloseButtonClick(): void {
-    ipcRenderer.send(ChannelKey.windowCloseRequest);
+    window.api.sendWindowCloseRequest();
   }
 
   onMaximizeRestoreButtonClick(): void {
-    ipcRenderer.send(ChannelKey.windowMaximizeRestoreRequest);
+    window.api.sendWindowMaximizeRestoreRequest();
   }
 
   onMinimizeButtonClick(): void {
-    ipcRenderer.send(ChannelKey.windowMinimizeRequest);
+    window.api.sendWindowMinimizeRequest();
   }
 
   private onWindowMaximize(isMaximized: boolean): void {

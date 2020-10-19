@@ -81,9 +81,6 @@ const renderer = {
     }),
   ],
   target: 'electron-renderer',
-  externals: [
-    nodeExternals(),
-  ],
   node: {
     __dirname: true,
     __filename: true,

@@ -7,8 +7,9 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 export class TitleBarComponent {
 
-  @Input() windowTitle: string = '';
+  @Input() isFocused: boolean = false;
   @Input() isMaximized: boolean = false;
+  @Input() windowTitle: string = '';
 
   @Output() closeButtonClick = new EventEmitter<void>();
   @Output() maximizeRestoreButtonClick = new EventEmitter<void>();

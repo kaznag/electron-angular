@@ -7,18 +7,21 @@ import { Component, OnInit, NgZone } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  windowTitle: string = '';
+  isFocused: boolean = false;
   isMaximized: boolean = false;
+  windowTitle: string = '';
 
   constructor(
     private ngZone: NgZone,
   ) { }
 
   ngOnInit(): void {
+    window.api.onWindowFocus(isFocused => this.onWindowFocus(isFocused));
     window.api.onWindowMaximize(isMaximize => this.onWindowMaximize(isMaximize));
 
     window.api.invokeWindowParameterRequest()
       .then(windowParameter => {
+        this.isFocused = windowParameter.isFocused;
         this.isMaximized = windowParameter.isMaximized;
         this.windowTitle = windowParameter.title;
 
@@ -38,9 +41,16 @@ export class AppComponent implements OnInit {
     window.api.sendWindowMinimizeRequest();
   }
 
+  private onWindowFocus(isFocused: boolean): void {
+    console.log(`onWindowFocus ${isFocused}`);
+    this.ngZone.run(() => {
+      this.isFocused = isFocused;
+    });
+  }
+
   private onWindowMaximize(isMaximized: boolean): void {
     this.ngZone.run(() => {
       this.isMaximized = isMaximized;
-    })
+    });
   }
 }

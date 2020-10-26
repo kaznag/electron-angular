@@ -4,5 +4,5 @@
   <div class="title-bar button" [ngClass]="isMaximized ? 'restore' : 'maximize'"
     (click)="maximizeRestoreButtonClick.emit()"></div>
   <div class="title-bar button minimize" (click)="minimizeButtonClick.emit()"></div>
-  <div class="window-title">{{windowTitle}}</div>
+  <div class="window-title" [ngClass]="!isFocused ? 'blur' : ''">{{windowTitle}}</div>
 </div>

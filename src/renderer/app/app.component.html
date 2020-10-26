@@ -1,5 +1,6 @@
-<app-title-bar [windowTitle]="windowTitle" [isMaximized]="isMaximized" (closeButtonClick)="onCloseButtonClick()"
-  (maximizeRestoreButtonClick)="onMaximizeRestoreButtonClick()" (minimizeButtonClick)="onMinimizeButtonClick()">
+<app-title-bar [isFocused]="isFocused" [isMaximized]="isMaximized" [windowTitle]="windowTitle"
+  (closeButtonClick)="onCloseButtonClick()" (maximizeRestoreButtonClick)="onMaximizeRestoreButtonClick()"
+  (minimizeButtonClick)="onMinimizeButtonClick()">
 </app-title-bar>
 <div class="contents">
   hello world!

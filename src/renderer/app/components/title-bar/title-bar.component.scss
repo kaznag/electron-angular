@@ -10,6 +10,10 @@ $contents-margin: 8px;
   -webkit-user-select: none;
 }
 
+.window-title.blur {
+  color: #999999;
+}
+
 .drag-region {
   position: absolute;
   left: $drag-region-margin;

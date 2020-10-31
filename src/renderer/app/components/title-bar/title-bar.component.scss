@@ -10,10 +10,6 @@ $contents-margin: 8px;
   -webkit-user-select: none;
 }
 
-.window-title.blur {
-  color: #999999;
-}
-
 .drag-region {
   position: absolute;
   left: $drag-region-margin;
@@ -29,48 +25,50 @@ $contents-margin: 8px;
   line-height: $title-bar-height;
 }
 
+.window-title.blur {
+  color: #999999;
+}
+
 .title-bar.button {
   float: right;
   width: $title-bar-button-width;
   height: 100%;
-}
-
-
-.title-bar.button.close {
   position: relative;
   background-color: transparent;
 }
 
-.title-bar.button.close:before, .title-bar.title-bar.button.close:after {
+@mixin close-button-base($color) {
   position: absolute;
   left: 16px;
   width: 13px;
   height: 1px;
   top: 14px;
   content: " ";
-  background-color: #000000;
+  background-color: $color;
 }
 
-.title-bar.button.close:before {
+.close-button {
+  @extend .title-bar.button;
+}
+
+.close-button:before, .close-button:after {
+  @include close-button-base(#000000);
+}
+
+.close-button:before {
   transform: rotate(45deg);
 }
 
-.title-bar.button.close:after {
+.close-button:after {
   transform: rotate(-45deg);
 }
 
-.title-bar.button.close:hover {
+.close-button:hover {
   background-color: #e81123;
 }
 
-.title-bar.button.close:hover:before, .title-bar.button.close:hover:after {
-  position: absolute;
-  left: 16px;
-  width: 13px;
-  height: 1px;
-  top: 14px;
-  content: " ";
-  background-color: #ffffff;
+.close-button:hover:before, .close-button:hover:after {
+  @include close-button-base(#ffffff);
 }
 
 .title-bar.button.close:hover:before {

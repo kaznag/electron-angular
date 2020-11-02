@@ -71,12 +71,12 @@ $contents-margin: 8px;
   @include close-button-base(#ffffff);
 }
 
-.title-bar.button.close:hover:before {
-  transform: rotate(45deg);
+.close-button.blur:before, .close-button.blur:after {
+@include close-button-base(#999999);
 }
 
-.title-bar.button.close:hover:after {
-  transform: rotate(-45deg);
+.close-button.blur:hover:before, .close-button.blur:hover:after {
+  @include close-button-base(#ffffff);
 }
 
 .title-bar.button.maximize {

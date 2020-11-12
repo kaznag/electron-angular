@@ -2,7 +2,6 @@
 $title-bar-height: 30px;
 $drag-region-margin: 4px;
 $title-bar-button-width: 45px;
-$contents-margin: 8px;
 
 .title-bar {
   width: 100%;
@@ -72,7 +71,7 @@ $contents-margin: 8px;
 }
 
 .close-button.blur:before, .close-button.blur:after {
-@include close-button-base(#999999);
+  @include close-button-base(#999999);
 }
 
 .close-button.blur:hover:before, .close-button.blur:hover:after {
@@ -156,11 +155,26 @@ $contents-margin: 8px;
 
 .restore-button:after {
   @include restore-button-base-after(#000000);
-
 }
 
 .restore-button:hover {
   background-color: #e5e5e5;
+}
+
+.restore-button.blur:before {
+  @include restore-button-base-before(#999999);
+}
+
+.restore-button.blur:after {
+  @include restore-button-base-after(#999999);
+}
+
+.restore-button.blur:hover:before {
+  @include restore-button-base-before(#000000);
+}
+
+.restore-button.blur:hover:after {
+  @include restore-button-base-after(#000000);
 }
 
 .title-bar.button.minimize {

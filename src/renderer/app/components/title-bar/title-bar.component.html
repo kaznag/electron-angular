@@ -3,6 +3,6 @@
   <div class="close-button" [ngClass]="{'blur': !isFocused}" (click)="closeButtonClick.emit()"></div>
   <div [ngClass]="{'restore-button': isMaximized, 'maximize-button': !isMaximized, 'blur': !isFocused}"
     (click)="maximizeRestoreButtonClick.emit()"></div>
-  <div class="title-bar button minimize" (click)="minimizeButtonClick.emit()"></div>
+  <div class="minimize-button" (click)="minimizeButtonClick.emit()"></div>
   <div class="window-title" [ngClass]="{'blur': !isFocused}">{{windowTitle}}</div>
 </div>

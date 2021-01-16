@@ -2,6 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const rootPath = path.resolve(__dirname, './../');
 const srcPath = path.resolve(rootPath, 'src');
@@ -78,6 +79,11 @@ const renderer = {
     new HtmlWebpackPlugin({
       template: path.resolve(rootPath, './src/renderer/index.html'),
       filename: 'index.html',
+    }),
+    new StylelintPlugin({
+      configFile: path.resolve(rootPath, 'config', '.stylelintrc.json'),
+      files: 'src/**/*.s?(a|c)ss',
+      fix: true,
     }),
   ],
   target: 'electron-renderer',

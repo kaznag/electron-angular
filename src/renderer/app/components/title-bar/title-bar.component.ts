@@ -12,6 +12,6 @@ export class TitleBarComponent {
   @Input() windowTitle: string = '';
 
   @Output() onCloseButtonClick = new EventEmitter<void>();
-  @Output() onMaximizeRestoreButtonClick = new EventEmitter<void>();
+  @Output() onMaximizeResizeButtonClick = new EventEmitter<void>();
   @Output() onMinimizeButtonClick = new EventEmitter<void>();
 }

@@ -1,8 +1,8 @@
 <div class="title-bar">
   <div class="drag-region"></div>
   <div class="close-button" [ngClass]="{'blur': !isFocused}" (click)="onCloseButtonClick.emit()" data-test-id='close-button'></div>
-  <div [ngClass]="{'restore-button': isMaximized, 'maximize-button': !isMaximized, 'blur': !isFocused}"
-    (click)="onMaximizeRestoreButtonClick.emit()" data-test-id="maximize-button"></div>
+  <div [ngClass]="{'resize-button': isMaximized, 'maximize-button': !isMaximized, 'blur': !isFocused}"
+    (click)="onMaximizeResizeButtonClick.emit()" data-test-id="maximize-button"></div>
   <div class="minimize-button" [ngClass]="{'blur': !isFocused}" (click)="onMinimizeButtonClick.emit()" data-test-id="minimize-button"></div>
   <div class="window-title" [ngClass]="{'blur': !isFocused}" data-test-id="window-title">{{windowTitle}}</div>
 </div>

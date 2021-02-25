@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     window.api.sendWindowCloseRequest();
   }
 
-  onMaximizeRestoreButtonClick(): void {
+  onMaximizeResizeButtonClick(): void {
     window.api.sendWindowMaximizeRestoreRequest();
   }
 

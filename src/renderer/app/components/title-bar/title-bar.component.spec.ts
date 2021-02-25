@@ -15,7 +15,7 @@ describe('<TitleBar />', () => {
     expect(screen.getByTestId('window-title').className).toBe('window-title');
   });
 
-  test('should render with restore button', async () => {
+  test('should render with resize button', async () => {
     await render(TitleBarComponent, {
       componentProperties: {
         isMaximized: true,
@@ -23,7 +23,7 @@ describe('<TitleBar />', () => {
     });
 
     expect(screen.getByTestId('close-button').className).toBe('close-button');
-    expect(screen.getByTestId('maximize-button').className).toBe('restore-button');
+    expect(screen.getByTestId('maximize-button').className).toBe('resize-button');
     expect(screen.getByTestId('minimize-button').className).toBe('minimize-button');
     expect(screen.getByTestId('window-title').className).toBe('window-title');
   });
@@ -41,7 +41,7 @@ describe('<TitleBar />', () => {
     expect(screen.getByTestId('window-title').className).toBe('window-title blur');
   });
 
-  test('should render with blur restore button', async () => {
+  test('should render with blur resize button', async () => {
     await render(TitleBarComponent, {
       componentProperties: {
         isFocused: false,
@@ -50,7 +50,7 @@ describe('<TitleBar />', () => {
     });
 
     expect(screen.getByTestId('close-button').className).toBe('close-button blur');
-    expect(screen.getByTestId('maximize-button').className).toBe('restore-button blur');
+    expect(screen.getByTestId('maximize-button').className).toBe('resize-button blur');
     expect(screen.getByTestId('minimize-button').className).toBe('minimize-button blur');
     expect(screen.getByTestId('window-title').className).toBe('window-title blur');
   });
@@ -84,7 +84,7 @@ describe('<TitleBar />', () => {
     const handler = jest.fn();
     await render(TitleBarComponent, {
       componentProperties: {
-        onMaximizeRestoreButtonClick: {
+        onMaximizeResizeButtonClick: {
           emit: handler,
         } as any,
       }

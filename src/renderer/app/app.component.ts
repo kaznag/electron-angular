@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   private onWindowFocus(isFocused: boolean): void {
-    console.log(`onWindowFocus ${isFocused}`);
     this.ngZone.run(() => {
       this.isFocused = isFocused;
     });

@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.config.common');
 
@@ -9,6 +10,16 @@ const main = merge(common.main, {
   output: {
     path: outputPath,
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(common.srcPath, 'locales/'),
+          to: path.resolve(outputPath, 'locales/')
+        },
+      ]
+    }),
+  ],
   devtool: 'inline-source-map',
 });
 

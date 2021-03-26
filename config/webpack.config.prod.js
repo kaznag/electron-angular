@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const JavaScriptObfuscator = require('webpack-obfuscator');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.config.common');
@@ -12,6 +13,14 @@ const main = merge(common.main, {
     path: outputPath,
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(common.srcPath, 'locales/'),
+          to: path.resolve(outputPath, 'locales/')
+        },
+      ]
+    }),
     new JavaScriptObfuscator({
       rotateUnicodeArray: true
     }),

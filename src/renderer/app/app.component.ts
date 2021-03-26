@@ -1,4 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Language } from '../../common/message';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,16 @@ import { Component, OnInit, NgZone } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  private language: string = '';
+
   isFocused: boolean = false;
   isMaximized: boolean = false;
   windowTitle: string = '';
+  supportLanguages: Language[] = [];
 
   constructor(
     private ngZone: NgZone,
+    private translate: TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +29,9 @@ export class AppComponent implements OnInit {
       .then(windowParameter => {
         this.isFocused = windowParameter.isFocused;
         this.isMaximized = windowParameter.isMaximized;
+        this.translate.setDefaultLang(windowParameter.language);
+        this.supportLanguages = windowParameter.supportLanguages;
+        this.changeLanguage(windowParameter.language);
         this.windowTitle = windowParameter.title;
 
         window.api.sendWindowInitialized();
@@ -39,6 +48,18 @@ export class AppComponent implements OnInit {
 
   onMinimizeButtonClick(): void {
     window.api.sendWindowMinimizeRequest();
+  }
+
+  changeLanguage(language: string): void {
+    if (language !== this.language) {
+      this.language = language;
+      this.translate.use(this.language);
+      window.api.sendChangeLanguage(this.language);
+    }
+  }
+
+  equalLanguage(language: string): boolean {
+    return language === this.language;
   }
 
   private onWindowFocus(isFocused: boolean): void {

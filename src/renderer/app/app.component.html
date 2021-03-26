@@ -4,4 +4,10 @@
 </app-title-bar>
 <div class="contents">
   hello world!
+  <h2 translate>language</h2>
+  <select (change)="changeLanguage($event.target.value)">
+    <option *ngFor="let lang of supportLanguages" [value]="lang.language" [selected]="equalLanguage(lang.language)">
+      <span>{{lang.label}}</span>
+    </option>
+  </select>
 </div>

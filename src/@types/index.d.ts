@@ -1,4 +1,4 @@
-import { Language, WindowParameter } from "../common/message";
+import { WindowParameter } from "../common/message";
 
 declare global {
   interface Window {
@@ -15,7 +15,7 @@ export interface Api {
   sendWindowMinimizeRequest: () => void;
   sendChangeLanguage: (language: string) => void;
   invokeWindowParameterRequest: () => Promise<WindowParameter>;
-  invoke: (channle: string, ...args: any[]) => Promise<any>;
+  invoke: (channel: string, ...args: any[]) => Promise<any>;
   on: (channel: string, listener: (...args: any[]) => void) => void;
   send: (channel: string, ...args: any[]) => void;
 }

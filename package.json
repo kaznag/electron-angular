@@ -16,6 +16,7 @@
     "pack:l": "yarn rebuild && electron-builder --l --config ./config/electron-builder.yml",
     "pack:w": "yarn rebuild && electron-builder --w --config ./config/electron-builder.yml",
     "format:css": "stylelint --config ./config/.stylelintrc.json --fix ./src/**/*.{css,sass,scss}",
+    "format:html": "prettier -w ./src/renderer/**/*.{component.html,html}",
     "test": "jest --config ./config/jest.config.js"
   },
   "keywords": [],
@@ -52,6 +53,7 @@
     "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1",
+    "prettier-loader": "^3.3.0",
     "rimraf": "^3.0.2",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
@@ -79,6 +81,9 @@
   "lint-staged": {
     "./src/**/*.{css,sass,scss}": [
       "stylelint --config ./config/.stylelintrc.json --fix"
+    ],
+    "./src/**/*.{html,component.html}": [
+      "prettier -w"
     ]
   }
 }

@@ -67,21 +67,6 @@ const renderer = {
         ],
       },
       {
-        test: /\.html$/,
-        use: [
-          'html-loader',
-          {
-            loader: 'prettier-loader',
-            options: {
-              parser: 'html',
-            },
-          },
-        ],
-        exclude: [
-          path.resolve(srcPath, 'renderer/app'),
-        ],
-      },
-      {
         test: /\.component\.html$/,
         use: [
           'html-loader',

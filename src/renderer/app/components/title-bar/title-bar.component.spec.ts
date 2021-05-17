@@ -19,7 +19,7 @@ describe('<TitleBar />', () => {
     await render(TitleBarComponent, {
       componentProperties: {
         isMaximized: true,
-      }
+      },
     });
 
     expect(screen.getByTestId('close-button').className).toBe('close-button');
@@ -32,7 +32,7 @@ describe('<TitleBar />', () => {
     await render(TitleBarComponent, {
       componentProperties: {
         isFocused: false,
-      }
+      },
     });
 
     expect(screen.getByTestId('close-button').className).toBe('close-button blur');
@@ -46,7 +46,7 @@ describe('<TitleBar />', () => {
       componentProperties: {
         isFocused: false,
         isMaximized: true,
-      }
+      },
     });
 
     expect(screen.getByTestId('close-button').className).toBe('close-button blur');
@@ -58,9 +58,8 @@ describe('<TitleBar />', () => {
   test('should render title', async () => {
     await render(TitleBarComponent, {
       componentProperties: {
-        windowTitle: 'Hello world'
+        windowTitle: 'Hello world',
       },
-
     });
 
     expect(screen.getByTestId('window-title')).toHaveTextContent('Hello world');
@@ -73,7 +72,7 @@ describe('<TitleBar />', () => {
         onCloseButtonClick: {
           emit: handler,
         } as any,
-      }
+      },
     });
 
     fireEvent.click(screen.getByTestId('close-button'));
@@ -87,7 +86,7 @@ describe('<TitleBar />', () => {
         onMaximizeResizeButtonClick: {
           emit: handler,
         } as any,
-      }
+      },
     });
 
     fireEvent.click(screen.getByTestId('maximize-button'));
@@ -101,7 +100,7 @@ describe('<TitleBar />', () => {
         onMinimizeButtonClick: {
           emit: handler,
         } as any,
-      }
+      },
     });
 
     fireEvent.click(screen.getByTestId('minimize-button'));

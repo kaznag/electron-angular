@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TitleBarComponent } from './components/title-bar/title-bar.component';
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './locales/', '.json');
+  return new TranslateHttpLoader(http, './locales/', '.json');
 }
 
 @NgModule({
@@ -17,18 +17,12 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    })
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  declarations: [
-    AppComponent,
-    TitleBarComponent,
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  declarations: [AppComponent, TitleBarComponent],
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

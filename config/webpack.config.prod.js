@@ -23,7 +23,7 @@ const main = merge(common.main, {
     }),
     new JavaScriptObfuscator({
       rotateUnicodeArray: true
-    }),
+    }, []),
   ]
 });
 
@@ -64,7 +64,7 @@ const renderer = merge(common.renderer, {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-    }),
+    }, []),
   ]
 });
 
@@ -76,7 +76,7 @@ const preload = merge(common.preload, {
   plugins: [
     new JavaScriptObfuscator({
       rotateUnicodeArray: true
-    }),
+    }, []),
   ]
 });
 

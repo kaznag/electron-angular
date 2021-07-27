@@ -1,0 +1,6 @@
+<button (click)="decreaseClick.emit(10)" data-test-id="decrease-button-10">-10</button>
+<button (click)="decreaseClick.emit(1)" data-test-id="decrease-button-1">-1</button>
+<span class="count" data-test-id="count">{{ count }}</span>
+<button (click)="increaseClick.emit(1)" data-test-id="increase-button-1">+1</button>
+<button (click)="increaseClick.emit(10)" data-test-id="increase-button-10">+10</button>
+<button (click)="resetClick.emit()" data-test-id="reset-button">reset</button>

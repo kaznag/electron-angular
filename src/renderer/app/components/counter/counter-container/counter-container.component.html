@@ -1,5 +1,5 @@
 <app-counter
-  [count]="count"
+  [count]="count$ | async"
   (increaseClick)="onIncreaseClick($event)"
   (decreaseClick)="onDecreaseClick($event)"
   (resetClick)="onResetClick()"

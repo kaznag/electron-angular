@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
+import { CounterFacade } from '../../../services/counter.facade';
 
 @Component({
   selector: 'app-counter-container',
   templateUrl: './counter-container.component.html',
 })
 export class CounterContainerComponent {
-  count: number = 0;
+  count$ = this.counterFacade.count$;
+
+  constructor(private counterFacade: CounterFacade) {}
 
   onIncreaseClick(value: number): void {
-    this.count += value;
+    this.counterFacade.increment(value);
   }
 
   onDecreaseClick(value: number): void {
-    this.count -= value;
+    this.counterFacade.decrement(value);
   }
 
   onResetClick(): void {
-    this.count = 0;
+    this.counterFacade.reset();
   }
 }

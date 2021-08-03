@@ -11,10 +11,10 @@ describe('<Counter />', () => {
 
     expect(screen.getByTestId('count')).toHaveTextContent('0');
     expect(screen.getByTestId('count')).toHaveClass('count');
-    expect(screen.getByTestId('increase-button-1')).toHaveTextContent('+1');
-    expect(screen.getByTestId('increase-button-10')).toHaveTextContent('+10');
-    expect(screen.getByTestId('decrease-button-1')).toHaveTextContent('-1');
-    expect(screen.getByTestId('decrease-button-10')).toHaveTextContent('-10');
+    expect(screen.getByTestId('increment-button-1')).toHaveTextContent('+1');
+    expect(screen.getByTestId('increment-button-10')).toHaveTextContent('+10');
+    expect(screen.getByTestId('decrement-button-1')).toHaveTextContent('-1');
+    expect(screen.getByTestId('decrement-button-10')).toHaveTextContent('-10');
     expect(screen.getByTestId('reset-button')).toHaveTextContent('reset');
   });
 
@@ -38,8 +38,9 @@ describe('<Counter />', () => {
       },
     });
 
-    fireEvent.click(screen.getByTestId('increase-button-1'));
+    fireEvent.click(screen.getByTestId('increment-button-1'));
     expect(handler).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledWith(1);
   });
 
   test('should click +10 button', async () => {
@@ -52,8 +53,9 @@ describe('<Counter />', () => {
       },
     });
 
-    fireEvent.click(screen.getByTestId('increase-button-10'));
+    fireEvent.click(screen.getByTestId('increment-button-10'));
     expect(handler).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledWith(10);
   });
 
   test('should click -1 button', async () => {
@@ -66,8 +68,9 @@ describe('<Counter />', () => {
       },
     });
 
-    fireEvent.click(screen.getByTestId('decrease-button-1'));
+    fireEvent.click(screen.getByTestId('decrement-button-1'));
     expect(handler).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledWith(1);
   });
 
   test('should click -10 button', async () => {
@@ -80,8 +83,9 @@ describe('<Counter />', () => {
       },
     });
 
-    fireEvent.click(screen.getByTestId('decrease-button-10'));
+    fireEvent.click(screen.getByTestId('decrement-button-10'));
     expect(handler).toHaveBeenCalledTimes(1);
+    expect(handler).toHaveBeenCalledWith(10);
   });
 
   test('should click reset button', async () => {

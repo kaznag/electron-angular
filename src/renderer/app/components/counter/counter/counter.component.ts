@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CounterComponent {
   @Input() count: number = 0;
 
-  @Output() increaseClick = new EventEmitter<number>();
-  @Output() decreaseClick = new EventEmitter<number>();
+  @Output() incrementClick = new EventEmitter<number>();
+  @Output() decrementClick = new EventEmitter<number>();
   @Output() resetClick = new EventEmitter<void>();
 }

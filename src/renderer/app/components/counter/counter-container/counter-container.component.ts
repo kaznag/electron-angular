@@ -10,11 +10,11 @@ export class CounterContainerComponent {
 
   constructor(private counterFacade: CounterFacade) {}
 
-  onIncreaseClick(value: number): void {
+  onIncrementClick(value: number): void {
     this.counterFacade.increment(value);
   }
 
-  onDecreaseClick(value: number): void {
+  onDecrementClick(value: number): void {
     this.counterFacade.decrement(value);
   }
 

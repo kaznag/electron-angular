@@ -32,7 +32,7 @@ describe('<Counter />', () => {
     const handler = jest.fn();
     await render(CounterComponent, {
       componentProperties: {
-        increaseClick: {
+        incrementClick: {
           emit: handler,
         } as any,
       },
@@ -47,7 +47,7 @@ describe('<Counter />', () => {
     const handler = jest.fn();
     await render(CounterComponent, {
       componentProperties: {
-        increaseClick: {
+        incrementClick: {
           emit: handler,
         } as any,
       },
@@ -62,7 +62,7 @@ describe('<Counter />', () => {
     const handler = jest.fn();
     await render(CounterComponent, {
       componentProperties: {
-        decreaseClick: {
+        decrementClick: {
           emit: handler,
         } as any,
       },
@@ -77,7 +77,7 @@ describe('<Counter />', () => {
     const handler = jest.fn();
     await render(CounterComponent, {
       componentProperties: {
-        decreaseClick: {
+        decrementClick: {
           emit: handler,
         } as any,
       },

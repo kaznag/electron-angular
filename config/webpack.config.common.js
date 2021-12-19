@@ -69,12 +69,6 @@ const renderer = {
         test: /\.component\.html$/,
         use: [
           'html-loader',
-          {
-            loader: 'prettier-loader',
-            options: {
-              parser: 'angular',
-            },
-          },
         ],
       },
     ],

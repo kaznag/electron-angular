@@ -1,0 +1,7 @@
+printWidth: 100
+overrides:
+  - files:
+      - '*.ts'
+      - '*.yml'
+    options:
+      singleQuote: true

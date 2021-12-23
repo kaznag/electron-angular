@@ -18,10 +18,10 @@
     "pretest": "npm run lint",
     "test": "jest --config ./config/jest.config.js",
     "lint": "run-p lint:*",
-    "lint:prettier": "prettier --check --config ./config/.prettierrc.yml config/**/*.yml src/**/*",
+    "lint:prettier": "prettier --check --config ./config/.prettierrc.yml config/**/*.{js,json,yml} src/**/*",
     "lint:stylelint": "stylelint --config ./config/.stylelintrc.yml src/**/*.{css,sass,scss}",
     "fix": "run-s fix:*",
-    "fix:prettier": "prettier --write --config ./config/.prettierrc.yml config/**/*.yml src/**/*",
+    "fix:prettier": "prettier --write --config ./config/.prettierrc.yml config/**/*.{js,json,yml} src/**/*",
     "fix:stylelint": "stylelint --config ./config/.stylelintrc.yml --fix src/**/*.{css,sass,scss}",
     "prepare": "husky install"
   },
@@ -97,7 +97,7 @@
     "./src/**/*": [
       "prettier --write --config ./config/.prettierrc.yml"
     ],
-    "./config/**/*.yml": [
+    "./config/**/*.{js,json,yml}": [
       "prettier --write --config ./config/.prettierrc.yml"
     ]
   }

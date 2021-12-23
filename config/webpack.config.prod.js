@@ -17,14 +17,17 @@ const main = merge(common.main, {
       patterns: [
         {
           from: path.resolve(common.srcPath, 'locales/'),
-          to: path.resolve(outputPath, 'locales/')
+          to: path.resolve(outputPath, 'locales/'),
         },
-      ]
+      ],
     }),
-    new JavaScriptObfuscator({
-      rotateUnicodeArray: true
-    }, []),
-  ]
+    new JavaScriptObfuscator(
+      {
+        rotateUnicodeArray: true,
+      },
+      []
+    ),
+  ],
 });
 
 const renderer = merge(common.renderer, {
@@ -36,36 +39,27 @@ const renderer = merge(common.renderer, {
     rules: [
       {
         test: /\.scss$/,
-        use: [
-          'to-string-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-        exclude: [
-          common.stylesPath,
-        ],
+        use: ['to-string-loader', 'css-loader', 'sass-loader'],
+        exclude: [common.stylesPath],
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
-        include: [
-          common.stylesPath,
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        include: [common.stylesPath],
       },
     ],
   },
   plugins: [
     new JavaScriptObfuscator({
-      rotateUnicodeArray: true
+      rotateUnicodeArray: true,
     }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }, []),
-  ]
+    new MiniCssExtractPlugin(
+      {
+        filename: '[name].css',
+      },
+      []
+    ),
+  ],
 });
 
 const preload = merge(common.preload, {
@@ -74,14 +68,13 @@ const preload = merge(common.preload, {
     path: outputPath,
   },
   plugins: [
-    new JavaScriptObfuscator({
-      rotateUnicodeArray: true
-    }, []),
-  ]
+    new JavaScriptObfuscator(
+      {
+        rotateUnicodeArray: true,
+      },
+      []
+    ),
+  ],
 });
 
-module.exports = [
-  main,
-  renderer,
-  preload,
-];
+module.exports = [main, renderer, preload];

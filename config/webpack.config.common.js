@@ -13,31 +13,25 @@ const main = {
     filename: 'main.js',
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      include: [
-        srcPath,
-      ],
-      exclude: [
-        path.resolve(rootPath, 'node_modules'),
-      ],
-      loader: 'ts-loader',
-    }]
+    rules: [
+      {
+        test: /\.ts$/,
+        include: [srcPath],
+        exclude: [path.resolve(rootPath, 'node_modules')],
+        loader: 'ts-loader',
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [
-        { from: path.resolve(srcPath, 'package.json') }
-      ]
+      patterns: [{ from: path.resolve(srcPath, 'package.json') }],
     }),
   ],
   target: 'electron-main',
-  externals: [
-    nodeExternals(),
-  ],
+  externals: [nodeExternals()],
   node: {
     __filename: true,
     __dirname: true,
@@ -54,27 +48,18 @@ const renderer = {
     rules: [
       {
         test: /\.ts$/,
-        include: [
-          srcPath,
-        ],
-        exclude: [
-          path.resolve(rootPath, 'node_modules'),
-        ],
-        use: [
-          'ts-loader',
-          'angular2-template-loader',
-        ],
+        include: [srcPath],
+        exclude: [path.resolve(rootPath, 'node_modules')],
+        use: ['ts-loader', 'angular2-template-loader'],
       },
       {
         test: /\.component\.html$/,
-        use: [
-          'html-loader',
-        ],
+        use: ['html-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -95,19 +80,17 @@ const preload = {
     filename: 'preload.js',
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      include: [
-        srcPath,
-      ],
-      exclude: [
-        path.resolve(rootPath, 'node_modules'),
-      ],
-      loader: 'ts-loader',
-    }]
+    rules: [
+      {
+        test: /\.ts$/,
+        include: [srcPath],
+        exclude: [path.resolve(rootPath, 'node_modules')],
+        loader: 'ts-loader',
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
   },
   target: 'electron-preload',
   node: {

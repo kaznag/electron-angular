@@ -15,9 +15,9 @@ const main = merge(common.main, {
       patterns: [
         {
           from: path.resolve(common.srcPath, 'locales/'),
-          to: path.resolve(outputPath, 'locales/')
+          to: path.resolve(outputPath, 'locales/'),
         },
-      ]
+      ],
     }),
   ],
   devtool: 'inline-source-map',
@@ -47,9 +47,7 @@ const renderer = merge(common.renderer, {
             },
           },
         ],
-        exclude: [
-          common.stylesPath,
-        ],
+        exclude: [common.stylesPath],
       },
       {
         test: /\.scss$/,
@@ -68,9 +66,7 @@ const renderer = merge(common.renderer, {
             },
           },
         ],
-        include: [
-          common.stylesPath,
-        ],
+        include: [common.stylesPath],
       },
     ],
   },
@@ -85,8 +81,4 @@ const preload = merge(common.preload, {
   devtool: 'inline-source-map',
 });
 
-module.exports = [
-  main,
-  renderer,
-  preload,
-];
+module.exports = [main, renderer, preload];

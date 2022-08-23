@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CounterModule } from './components/counter/counter.module';
-import { TitleBarComponent } from './components/title-bar/title-bar.component';
+import { TitleBarComponent } from './features/title-bar';
 
 const extModules = !environment.production ? [StoreDevtoolsModule.instrument()] : [];
 

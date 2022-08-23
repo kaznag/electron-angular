@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CounterFacade } from '../../../services/counter.facade';
+import { CounterFacade } from '../../../../services/counter.facade';
 
 @Component({
   selector: 'app-counter-container',

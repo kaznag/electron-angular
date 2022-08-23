@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { CounterState } from '../store/counter/counter.reducer';
 import { selectCount } from '../store/counter/counter.selector';
 import * as CounterActions from '../store/counter/counter.actions';
-import { CounterStoreModule } from '../components/counter/counter-store.module';
+import { CounterStoreModule } from '../features/counter/counter-store.module';
 
 @Injectable({
   providedIn: CounterStoreModule,

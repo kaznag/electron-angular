@@ -1,0 +1,7 @@
+<app-hero-item
+  [id]="id"
+  [name]="name$ | async"
+  [selected]="id === (selectedId$ | async)"
+  (selectItem)="onHeroesListSelectItem($event)"
+  (deleteItem)="onHeroesListDeleteItem($event)"
+></app-hero-item>

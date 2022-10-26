@@ -8,6 +8,9 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CounterModule } from './features/counter/counter.module';
 import { TitleBarComponent } from './features/title-bar';
+import { appReducers } from './store';
+import { StoreModule } from '@ngrx/store';
+import { HeroesModule } from './features/heroes/heroes.module';
 
 const extModules = !environment.production ? [StoreDevtoolsModule.instrument()] : [];
 
@@ -26,6 +29,8 @@ const importModules = [
     },
   }),
   CounterModule,
+  HeroesModule,
+  StoreModule.forRoot(appReducers),
 ];
 
 importModules.push(...extModules);

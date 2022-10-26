@@ -1,0 +1,5 @@
+<div [ngClass]="{ select: selected }" (click)="selectItem.emit(id)">
+  <span class="id">{{ id }}</span>
+  <span class="name">{{ name }}</span>
+  <button (click)="deleteItem.emit(id)">DELETE</button>
+</div>

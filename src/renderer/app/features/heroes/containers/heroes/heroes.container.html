@@ -1,0 +1,4 @@
+<app-heroes-menu (getAll)="onGetAll()"></app-heroes-menu>
+<div>
+  <app-heroes-list class="list" [ids]="ids$ | async"></app-heroes-list>
+</div>

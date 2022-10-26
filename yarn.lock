@@ -644,6 +644,13 @@
     lodash "^4.17.15"
     tmp-promise "^3.0.2"
 
+"@ngrx/effects@^12.5.1":
+  version "12.5.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-12.5.1.tgz#acd0ff86d8db514e47337508dde83cc98f7a3416"
+  integrity sha512-fVNGIIntYLRWW1XWe0os2XOv03L22S4WTkX0OPZ9O6ztwuaNq0yzxWN7UeAC6H385F+g0k76KwRV78zHyP0bfQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngrx/store-devtools@^12.3.0":
   version "12.3.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-12.3.0.tgz#dbb7e89289ab50ef51f4e72d346bb3db9bc4f2b8"
@@ -651,10 +658,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@^12.3.0":
-  version "12.3.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.3.0.tgz#e6361dafe2b06c4a5f968807e4c1b41a4dd5809e"
-  integrity sha512-iwfARCo2csTvhbY/6ed2gcAsvJcEY+tHoSsrKz6HTvpN81lSIhXMXORvisKsuQe8lDU2aUl/lGDoldZ8DYo4eg==
+"@ngrx/store@^12.5.1":
+  version "12.5.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.5.1.tgz#a7c21d7df1d017d2cb7e77804b210cc14bcf8786"
+  integrity sha512-NLVkHLVeZc7IboXSDZlFoq1QrupmwYTYKRHS6se7ZasAv/lrIjHWsVVdICKSVRBsHZYu3+dmCXmu+YgulP7iHw==
   dependencies:
     tslib "^2.0.0"
 

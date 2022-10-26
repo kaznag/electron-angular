@@ -56,6 +56,10 @@ const renderer = {
         test: /\.component\.html$/,
         use: ['html-loader'],
       },
+      {
+        test: /\.container\.html$/,
+        use: ['html-loader'],
+      },
     ],
   },
   resolve: {

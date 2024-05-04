@@ -2,7 +2,7 @@ import { app, BrowserWindow, globalShortcut } from 'electron';
 import * as path from 'path';
 import { EventEmitter } from 'events';
 import { ApplicationSettings } from './application-settings';
-import type { BrowserWindowConstructorOptions } from 'electron/main';
+import type { BrowserWindowConstructorOptions } from 'electron';
 
 class MainWindow extends EventEmitter {
   private readonly devToolsShortcutKey = 'CmdOrCtrl+Shift+I';
